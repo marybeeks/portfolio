@@ -1,0 +1,74 @@
+@import "../vars.scss";
+
+.default {
+  .upper-wrap {
+    background: $PRIMARY_COLOR;
+    color: $WHITE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 150px 0;
+
+    .title, .tagline {
+      margin: 0 0 18px;
+      font-weight: normal;
+    }
+    .title {
+      font-size: 28px;
+    }
+    .tagline {
+      font-size: 18px;
+    }
+    .underline {
+      width: 55px;
+      border-color: $SECONDARY_COLOR;
+      margin: 0;
+    }
+  }
+  .lower-wrap {
+    padding: 100px $padding-left-right;
+
+    .case-study-list {
+      display: grid;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      grid-template-columns: repeat(auto-fit, 370px);
+      grid-column-gap: 42px;
+      grid-row-gap: 42px;
+      justify-content: center;
+    }
+
+    .case-study,
+    .case-study:visited,
+    .case-study:hover,
+    .case-study:active {
+      color: $BLACK;
+      text-decoration: none;
+    }
+
+    .case-study {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .case-study-image {
+      width: 370px;
+      height: 370px;
+    }
+
+    .case-study-text {
+      margin-top: 12px;
+    }
+
+    .case-study-placeholder {
+      width: 370px;
+      height: 370px;
+      background: #C0C0C0;
+      color: $BLACK;
+    }
+  }
+}

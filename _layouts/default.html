@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body class="layout-wrap">
+    <header class="layout-header">
+      <a class="title" href="/">Mary Crowther</a>
+      <nav>
+        <ul class="navigation {{ page.layout }}-active">
+          <li><a class="default" href="/">Portfolio</a></li>
+          <li><a class="about" href="/about">About</a></li>
+          <li><a class="contact" href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="layout-content {{page.layout}}">
+      {{ content }}
+    </main>
+    <footer class='layout-footer'>
+      <section>
+        <p>Mary Crowther - 2019</p>
+        <p><a href="https://www.linkedin.com/in/marycrow/">Linkedin</a> • <a href="https://twitter.com/MaryCrowther2">Twitter</a></p>
+      </section>
+    </footer>
+  </body>
+</html>

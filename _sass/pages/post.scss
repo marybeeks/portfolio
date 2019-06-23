@@ -1,0 +1,140 @@
+@import "../vars.scss";
+
+.post {
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+  }
+  h1 {
+    font-size: 28px;
+    line-height: 37px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 31px;
+  }
+  .upper-wrap {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    .title {
+      font-size: 24px;
+      margin: 0 0 20px;
+      font-weight: normal;
+    }
+    .underline {
+      width: 62.5px;
+      border: none;
+      border-bottom: 4px solid white;
+      margin: 0;
+    }
+  }
+  
+  .lower-wrap {
+    .inner {
+      margin: 0 auto;
+      max-width: 900px;
+      padding: 40px;
+      
+      p {
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    
+    @for $i from 1 through 10 {
+      $val: $i * 10;
+      .margin-#{$val} {
+        margin: #{$val}px;
+      }
+      .margin-bottom-#{$val} {
+        margin-bottom: #{$val}px;
+      }
+      .margin-top-#{$val} {
+        margin-top: #{$val}px;
+      }
+      .margin-left-#{$val} {
+        margin-left: #{$val}px;
+      }
+      .margin-right-#{$val} {
+        margin-right: #{$val}px;
+      }
+    }
+    /**
+    * Utility Classes
+    */
+    .skip-to-end,
+    .skip-to-end:visited,
+    .skip-to-end:active {
+      text-transform: uppercase;
+      color: #146FF1;
+      text-decoration: none;
+      border-bottom: 5px solid #146FF1;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    .circular {
+      border-radius: 50%;
+    }
+    .text-centered {
+      text-align: center;
+    }
+    .full-width {
+      display: block;
+      width: 100%;
+    }
+    @for $i from 1 through 70 {
+      $val: $i * 10;
+      .max-width-#{$val} {
+        max-width: #{$val}px;
+      }
+    }
+    .centered {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+    .flex {
+      display: flex;
+    }
+    .space-evenly {
+      justify-content: space-evenly;
+    }
+    .grid {
+      display: grid;
+      
+      @for $i from 1 through 30 {
+        $val: $i * 10;
+        &.auto-fit-#{$val} {
+          grid-template-columns: repeat(auto-fit, #{$val}px);
+        }
+        &.gap-#{$val} {
+          grid-column-gap: #{$val}px;
+        }
+
+      }
+      
+      &.space-evenly {
+        justify-content: space-evenly;
+      }
+      
+      &.split {
+        grid-template-columns: 1fr 1fr;
+        &.content-left {
+          grid-template-columns: 60% 1fr;
+        }
+        &.content-right {
+          grid-template-columns: 1fr 60%;
+        }
+      }
+    }
+  }
+}

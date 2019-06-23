@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<section class='upper-wrap'>
+  <h1 class="title">Mary Crowther</h1>
+  <h2 class="tagline">UX Designer</h2>
+  <hr class="underline" />
+</section>
+
+{%- if site.posts.size > 0 -%}
+  <section class='lower-wrap'>
+    <ul class="case-study-list">
+      {%- for post in site.posts -%}
+        {%- if post.live == true -%}
+        <li>
+          <a class="case-study" href="{{ post.url | relative_url }}">
+            <img class="case-study-image" src="{{ post.image }}">
+            <span class="case-study-text">{{ post.title }}</span>
+          </a>
+        </li>
+        {%- else -%}
+        <li>
+          <span class="case-study case-study-placeholder">Coming Soon</span>
+        </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </section>
+{%- endif -%}
