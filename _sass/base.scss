@@ -53,6 +53,15 @@ $padding-left-right: 40px;
     &.contact-active .contact {
       border-bottom: 2px solid $BLACK;
     }
+
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+  .hamburger {
+    @media screen and (max-width: 600px) {
+      display: inline-block;
+    }
   }
 }
 
