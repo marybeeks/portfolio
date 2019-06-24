@@ -5,9 +5,9 @@ $padding-left-right: 40px;
 .layout-wrap {
   display: grid;
   grid-template-areas: 
-    'header'
-    'content'
-    'footer';
+  'header'
+  'content'
+  'footer';
   grid-template-rows: 60px 1fr 130px;
 }
 
@@ -27,6 +27,11 @@ $padding-left-right: 40px;
     font-weight: bold;
   }
   
+  .navigation-wrap {
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
   .navigation {
     list-style-type: none;
     margin: 0;
@@ -47,26 +52,118 @@ $padding-left-right: 40px;
         color: $BLACK;
       }
     }
-
+    
     &.default-active .default,
     &.about-active .about,
     &.contact-active .contact {
       border-bottom: 2px solid $BLACK;
     }
-
-    @media screen and (max-width: 600px) {
-      display: none;
-    }
   }
+  
   .hamburger {
+    display: none;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    
+    &:focus {
+      outline: none;
+    }
+    
     @media screen and (max-width: 600px) {
       display: inline-block;
     }
+  }
+  .hamburger:before {
+    content: "";
+    position: absolute;
+    left: 0.21em;
+    top: 0.21em;
+    bottom: 0.21em;
+    right: 0;
+    background: linear-gradient(
+    to bottom, 
+    black, black 20%, 
+    white 20%, white 40%, 
+    black 40%, black 60%, 
+    white 60%, white 80%, 
+    black 80%, black 100%
+    );
   }
 }
 
 .layout-content {
   grid-area: content;
+  position: relative;
+
+  .mobile-navigation-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: -1;
+
+    &.open {
+      opacity: 1;
+      z-index: 100;
+    }
+
+    @media screen and (max-width: 600px) {
+      display: block;
+    }
+  }
+  
+  .mobile-navigation-wrap {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    overflow: hidden;
+    height: 0;
+    background: #FFFFFF;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+    
+    &.open {
+      height: auto;
+    }
+    
+    @media screen and (max-width: 600px) {
+      display: block;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        text-align: center;
+        
+        a,
+        a:visited,
+        a:active,
+        a:hover {
+          color: $BLACK;
+          padding: 15px 0;
+          text-decoration: none;
+          display: block;
+        }
+      }
+    }
+  }
 }
 
 .layout-footer {

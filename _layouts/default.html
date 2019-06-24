@@ -9,15 +9,24 @@
   <body class="layout-wrap">
     <header class="layout-header">
       <a class="title" href="/">Mary Crowther</a>
-      <nav>
+      <nav class='navigation-wrap'>
         <ul class="navigation {{ page.layout }}-active">
           <li><a class="default" href="/">Portfolio</a></li>
           <li><a class="about" href="/about">About</a></li>
           <li><a class="contact" href="/contact">Contact</a></li>
         </ul>
       </nav>
+      <button id='hamburger' class='hamburger'></button>
     </header>
     <main class="layout-content {{page.layout}}">
+      <nav id='mobile-nav' class='mobile-navigation-wrap'>
+        <ul>
+          <li><a class="default" href="/">Portfolio</a></li>
+          <li><a class="about" href="/about">About</a></li>
+          <li><a class="contact" href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div id='mobile-overlay' class="mobile-navigation-overlay"></div>
       {{ content }}
     </main>
     <footer class='layout-footer'>
@@ -26,5 +35,17 @@
         <p><a href="https://www.linkedin.com/in/marycrow/">Linkedin</a> • <a href="https://twitter.com/MaryCrowther2">Twitter</a></p>
       </section>
     </footer>
+    <script>
+      (() => {
+        const button = document.querySelector('#hamburger');
+        const nav = document.querySelector('#mobile-nav');
+        const overlay = document.querySelector('#mobile-overlay');
+
+        button.addEventListener('click', () => {
+          nav.classList.toggle('open');
+          overlay.classList.toggle('open');
+        });
+      })();
+    </script>
   </body>
 </html>
