@@ -29,6 +29,10 @@
   .lower-wrap {
     padding: 100px $padding-left-right;
 
+    @media screen and (max-width: 900px) {
+      padding: 50px $padding-left-right;
+    }
+
     .case-study-list {
       display: grid;
       list-style-type: none;
@@ -38,6 +42,15 @@
       grid-column-gap: 42px;
       grid-row-gap: 42px;
       justify-content: center;
+
+      li {
+        display: flex;
+        justify-content: center;
+      }
+      
+      @media screen and (max-width: 900px) {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
     }
 
     .case-study,
@@ -58,6 +71,11 @@
     .case-study-image {
       width: 370px;
       height: 370px;
+
+      @media screen and (max-width: 900px) {
+        width: 300px;
+        height: 300px;
+      }
     }
 
     .case-study-text {
@@ -69,6 +87,10 @@
       height: 370px;
       background: #C0C0C0;
       color: $BLACK;
+      @media screen and (max-width: 900px) {
+        width: 300px;
+        height: 300px;
+      }
     }
   }
 }
